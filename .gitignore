@@ -1,12 +1,13 @@
 # npm
-/node_modules
+node_modules
 npm-debug.log*
 
 # testing
-/coverage
+coverage
 
 # production
-/dist
+dist
+demo
 *.tar
 
 # misc
