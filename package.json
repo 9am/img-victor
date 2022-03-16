@@ -1,0 +1,11 @@
+{
+  "name": "@9am/img-victor",
+  "version": "0.0.1",
+  "description": "Web component coverting img to SVG",
+  "main": "lib/index.js",
+  "scripts": {
+    "build:worker": "cd lib/workers/lsd && emcc -Oz -s EXPORTED_FUNCTIONS=\"['_malloc', '_free', '_lsd']\" -s ALLOW_MEMORY_GROWTH=1 -s MODULARIZE=1 --pre-js pre.js --extern-post-js post.js lsd.c -o index.js"
+  },
+  "author": "9am",
+  "license": "MIT"
+}

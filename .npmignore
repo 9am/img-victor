@@ -1,0 +1,4 @@
+lib/workers/lsd/*.c
+lib/workers/lsd/*.h
+lib/workers/lsd/p*.js
+demo

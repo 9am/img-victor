@@ -1,0 +1,19 @@
+# npm
+/node_modules
+npm-debug.log*
+
+# testing
+/coverage
+
+# production
+/dist
+*.tar
+
+# misc
+.DS_Store
+*.swp
+
+*.png
+*.jpeg
+*.webp
+*.pgm
