@@ -1,6 +1,6 @@
 {
   "name": "@9am/img-victor",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Web component coverting img to SVG",
   "keywords": [
     "web component",
@@ -8,18 +8,26 @@
     "svg",
     "lsd"
   ],
-  "type": "module",
-  "module": "./lib/index.js",
+  "main": "./dist/img-victor.umd.js",
+  "module": "./dist/img-victor.es.js",
   "exports": {
-    ".": "./lib/index.js"
+    ".": {
+        "require": "./dist/img-victor.umd.js",
+        "import": "./dist/img-victor.es.js"
+    }
   },
   "scripts": {
-    "build:worker": "cd lib/workers/lsd && emcc -Oz -s EXPORTED_FUNCTIONS=\"['_malloc', '_free', '_lsd']\" -s ALLOW_MEMORY_GROWTH=1 -s MODULARIZE=1 --pre-js pre.js --extern-post-js post.js lsd.c -o index.js"
+    "dev": "vite",
+    "build": "vite build",
+    "build:worker": "cd lib/workers/lsd && emcc -Oz --memory-init-file 0 -sWASM=0 -sEXPORTED_FUNCTIONS=\"['_malloc', '_free', '_lsd']\" -sALLOW_MEMORY_GROWTH=1 -sMODULARIZE=1 --pre-js pre.js --extern-post-js post.js lsd.c -o index.js"
   },
   "author": "9am",
-"  repository": {
+  "  repository": {
     "type": "git",
     "url": "https://github.com/9am/img-victor"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "vite": "^2.8.6"
+  }
 }
