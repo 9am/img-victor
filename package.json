@@ -1,6 +1,6 @@
 {
   "name": "@9am/img-victor",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Web component coverting img to SVG",
   "keywords": [
     "web component",
@@ -8,18 +8,17 @@
     "svg",
     "lsd"
   ],
-  "main": "./dist/img-victor.umd.js",
+  "type": "module",
   "module": "./dist/img-victor.es.js",
   "exports": {
-    ".": {
-        "require": "./dist/img-victor.umd.js",
-        "import": "./dist/img-victor.es.js"
-    }
+    ".": "./dist/img-victor.es.js"
   },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "build:worker": "cd lib/workers/lsd && emcc -Oz --memory-init-file 0 -sWASM=0 -sEXPORTED_FUNCTIONS=\"['_malloc', '_free', '_lsd']\" -sALLOW_MEMORY_GROWTH=1 -sMODULARIZE=1 --pre-js pre.js --extern-post-js post.js lsd.c -o index.js"
+    "build:fast": "cd lib/workers/lsd && emcc -Oz lsd.c -o fastWorker.js -sEXPORTED_FUNCTIONS=\"['_malloc', '_free', '_lsd']\" -sALLOW_MEMORY_GROWTH=1 -sMODULARIZE=1 --pre-js pre.js --extern-post-js post.js",
+    "build:slow": "cd lib/workers/lsd && emcc -Oz lsd.c -o slowWorker.js --memory-init-file 0 -sWASM=0 -sEXPORTED_FUNCTIONS=\"['_malloc', '_free', '_lsd']\" -sALLOW_MEMORY_GROWTH=1 -sMODULARIZE=1 --pre-js pre.js --extern-post-js post.js",
+    "build:all": "npm run build:slow && npm run build:slow && npm run build"
   },
   "author": "9am",
   "  repository": {
@@ -29,5 +28,8 @@
   "license": "MIT",
   "dependencies": {
     "vite": "^2.8.6"
+  },
+  "devDependencies": {
+    "vite-plugin-static-copy": "^0.4.1"
   }
 }

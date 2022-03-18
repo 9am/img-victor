@@ -20,14 +20,15 @@
     </style>
 </head>
 <body>
-    <img-victor src="/demo/img/senbazuru.png"></img-victor>
-    <!--
-    -->
+    <img-victor src="/demo/img/line.png"></img-victor>
     <script type="module">
         import { register } from './lib/main.js';
         // import { register } from '/dist/img-victor.es.js';
         // import { register } from 'https://cdn.skypack.dev/@9am/img-victor';
         register({
+            // worker() {
+            //     return new Worker(new URL('./lib/workers/lsd/fastWorker.js', import.meta.url));
+            // },
             poolSize: 4,
         });
     </script>

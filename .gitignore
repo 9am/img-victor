@@ -15,7 +15,5 @@ demo
 .DS_Store
 *.swp
 
-*.png
-*.jpeg
-*.webp
-*.pgm
+# emcc output
+lib/workers/**/*Worker*

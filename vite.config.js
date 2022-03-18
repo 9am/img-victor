@@ -1,12 +1,18 @@
-const path = require('path')
-const { defineConfig } = require('vite')
+import path from 'path'
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+import { defineConfig } from 'vite'
+import { viteStaticCopy } from 'vite-plugin-static-copy'
 
-module.exports = defineConfig({
+export default defineConfig({
     build: {
         lib: {
-            entry: path.resolve(__dirname, 'lib/main.js'),
+            entry: path.resolve(
+                dirname(fileURLToPath(import.meta.url)),
+                'lib/main.js'
+            ),
             name: 'img-victor',
-            fileName: (format) => `img-victor.${format}.js`,
+            formats: ['es'],
             emitAssets: true,
         },
         rollupOptions: {
@@ -15,4 +21,11 @@ module.exports = defineConfig({
             }
         }
     },
+    plugins: [
+        viteStaticCopy({
+            targets: [
+                { src: './lib/workers/lsd/fastWorker.*', dest: './' }
+            ]
+        })
+    ]
 })
