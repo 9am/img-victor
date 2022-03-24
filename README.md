@@ -21,7 +21,7 @@
 	```
 	or try it with skypack without installation
 
-	```
+	```js
 	import { register } from 'https://cdn.skypack.dev/@9am/img-victor';
 	register({})
 	```
@@ -45,7 +45,7 @@
 	|:--:|:--:|:-----:|:----------|
 	|`--victor-stroke`|css \<color>|`dimgray`|svg path stroke color|
 	|`--victor-stroke-width`|css \<length>|`0.2%`|svg path stroke width|
-	|`--victor-stroke-linecap`|`{butt|round|square|inherit}`|`round`|svg path stroke linecap|
+	|`--victor-stroke-linecap`|`{butt\|round\|square\|inherit}`|`round`|svg path stroke linecap|
 3. register options
 
 	|Name|Type|Default|Description|
