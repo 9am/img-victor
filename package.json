@@ -1,6 +1,6 @@
 {
   "name": "@9am/img-victor",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Web component coverting img to path",
   "keywords": [
     "web component",
@@ -22,8 +22,14 @@
     "build:slow": "cd lib/workers/lsd && emcc -Oz lsd.c -o slowWorker.js --memory-init-file 0 -sWASM=0 -sEXPORTED_FUNCTIONS=\"['_malloc', '_free', '_lsd']\" -sALLOW_MEMORY_GROWTH=1 -sMODULARIZE=1 --pre-js pre.js --extern-post-js post.js",
     "build:all": "npm run build:slow && npm run build:slow && npm run build"
   },
-  "author": "9am",
-  "  repository": {
+  "author": [
+    {
+      "name": "9am",
+      "email": "tech.9am@gmail.com",
+      "url": "https://9am.github.io/"
+    }
+  ],
+  "repository": {
     "type": "git",
     "url": "https://github.com/9am/img-victor"
   },
