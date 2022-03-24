@@ -9,7 +9,9 @@
             padding: 0;
             box-sizing: border-box;
         }
+        img,
         img-victor {
+            width: 200px;
             margin: 16px;
             outline: 1px solid grey;
             /*
@@ -27,7 +29,7 @@
         // import { register } from 'https://cdn.skypack.dev/@9am/img-victor';
         register({
             // worker() {
-            //     return new Worker(new URL('./lib/workers/lsd/fastWorker.js', import.meta.url));
+            //     return new Worker('/lib/workers/lsd/fastWorker.js');
             // },
             poolSize: 4,
         });

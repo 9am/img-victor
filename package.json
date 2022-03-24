@@ -1,11 +1,13 @@
 {
   "name": "@9am/img-victor",
-  "version": "0.0.5",
-  "description": "Web component coverting img to SVG",
+  "version": "0.0.6",
+  "description": "Web component coverting img to path",
   "keywords": [
     "web component",
     "img",
     "svg",
+    "path",
+    "vector",
     "lsd"
   ],
   "type": "module",
@@ -26,10 +28,8 @@
     "url": "https://github.com/9am/img-victor"
   },
   "license": "MIT",
-  "dependencies": {
-    "vite": "^2.8.6"
-  },
   "devDependencies": {
+    "vite": "^2.8.6",
     "vite-plugin-static-copy": "^0.4.1"
   }
 }
