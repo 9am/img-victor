@@ -1,7 +1,7 @@
 <div align="center">
 	<img src="https://user-images.githubusercontent.com/1435457/159866255-e15e4d8c-437d-48aa-a27e-a751cc02e7c2.svg" alt="img-victor" width="180" height="180" />
 	<h1>&lt;img-victor&gt;</h1>
-	<p>a web component converting &lt;img&gt; to SVG &lt;path&gt; with a drawing effect</p>
+	<p>A web component converting &lt;img&gt; to SVG &lt;path&gt; with a drawing effect</p>
 </div>
 
 ## Demo
@@ -44,8 +44,12 @@
 	|Name|Type|Default|Description|
 	|:--:|:--:|:-----:|:----------|
 	|`--victor-stroke`|css \<color>|`dimgray`|svg path stroke color|
-	|`--victor-stroke-width`|css \<length>|`0.2%`|svg path stroke width|
+	|`--victor-stroke-width`|css \<length>|`0.3%`|svg path stroke width|
 	|`--victor-stroke-linecap`|`{butt\|round\|square\|inherit}`|`round`|svg path stroke linecap|
+	|`--victor-stroke-linejoin`|`{arcs\|bevel\|miter\|miter-clip\|round}`|`round`|svg path stroke linejoin |
+	|`--victor-img-filter`|`css <filter>`|`opacity(0) brightness(20) blur(4px)`|filter of the origin image|
+	|`--victor-img-hover-filter`|`css <filter>`|`opacity(1) brightness(1) blur(0)`|filter of the origin image hovered|
+	|`--victor-transition`|`css <transition> exclude transition property`|`3200ms ease-in-out`|transition for animation|
 3. register options
 
 	|Name|Type|Default|Description|
@@ -53,7 +57,6 @@
 	|`tagName`|{String}|`img-victor`|Change tag name of the web component|
 	|`worker`|{Worker}|`LSD worker`|The worker plugin.</br>1. Write your own worker.js like:</br>```onmessage({ data:ImageData }) => postMessage([, groupOfLines])```</br>2. Using a faster version LSD worker, example can be found in `index.html`</br>*Notice: you need to bundle and serve `fastWorker.js` and  `fastWorker.wasm`.*|
 	|`poolSize`|{Number}|`2`|Worker pool size|
-	|`duration`|{Number}|`5000`|Drawing animation duration in ms|
 
 ## Development
 1. Install dependencies
