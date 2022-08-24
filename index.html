@@ -11,20 +11,29 @@
         }
         img,
         img-victor {
-            width: 200px;
+            display: inline-block;
+            width: 20%;
             margin: 16px;
+            margin-bottom: 100px;
             outline: 1px solid grey;
             --victor-stroke: black;
             --victor-stroke-width: 0.3%;
             --victor-stroke-linecap: round;
             --victor-stroke-linejoin: round;
-            --victor-img-filter: opacity(0);
-            --victor-transition: 2s ease-in-out;
+            --victor-duration: 3s;
+            --victor-timing-function: ease-out;
+            // --victor-filter: none;
+        }
+        img-victor::part(img) {
+            // visibility: hidden;
         }
     </style>
 </head>
 <body>
-    <img-victor src="/demo/img/line.png"></img-victor>
+    <img-victor data-src="/demo/img/line.png" ratio="1:1"></img-victor>
+    <img-victor data-src="/demo/img/senbazuru.svg" ratio="1:1"></img-victor>
+    <img-victor data-src="/demo/img/cart.jpeg" ratio="1:1"></img-victor>
+    <img-victor data-src="/demo/img/a.png" ratio="1:1"></img-victor>
     <script type="module">
         import { register } from './lib/main.js';
         // import { register } from '/dist/img-victor.es.js';

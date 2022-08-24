@@ -1,13 +1,14 @@
 {
   "name": "@9am/img-victor",
-  "version": "0.1.2",
-  "description": "Web component coverting img to path",
+  "version": "1.0.0",
+  "description": "A web component coverting img to path",
   "keywords": [
     "web component",
     "img",
     "svg",
     "path",
     "vector",
+    "animation",
     "lsd"
   ],
   "type": "module",
@@ -15,6 +16,10 @@
   "exports": {
     ".": "./dist/img-victor.es.js"
   },
+  "files": [
+    "dist/*.js",
+    "dist/*.wasm"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -35,6 +40,7 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "prettier": "^2.7.1",
     "vite": "^2.8.6",
     "vite-plugin-static-copy": "^0.4.1"
   }

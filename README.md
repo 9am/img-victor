@@ -2,6 +2,20 @@
 	<img src="https://user-images.githubusercontent.com/1435457/159866255-e15e4d8c-437d-48aa-a27e-a751cc02e7c2.svg" alt="img-victor" width="180" height="180" />
 	<h1>&lt;img-victor&gt;</h1>
 	<p>A web component converting &lt;img&gt; to SVG &lt;path&gt; with a drawing effect</p>
+    <p>
+        <a href="https://github.com/9am/img-victor/blob/main/LICENSE">
+            <img alt="GitHub" src="https://img.shields.io/github/license/9am/img-victor?style=flat-square&color=success">
+        </a>
+        <a href="https://www.npmjs.com/package/@9am/img-victor">
+            <img alt="npm" src="https://img.shields.io/npm/v/@9am/img-victor?style=flat-square&color=orange">
+        </a>
+        <a href="https://www.npmjs.com/package/@9am/img-victor">
+            <img allt="npm" src="https://img.shields.io/npm/dt/@9am/img-victor?style=flat-square&color=blue">
+        </a>
+        <a href="https://bundlephobia.com/package/@9am/img-victor@latest">
+            <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/@9am/img-victor?style=flat-square">
+        </a>
+    </p>
 </div>
 
 ## Demo
@@ -17,46 +31,43 @@
 
 	```js
 	import { register } from '@9am/img-victor';
-	register({})
-	```
-	or try it with skypack without installation
+	register({/* options */})
 
-	```js
-	import { register } from 'https://cdn.skypack.dev/@9am/img-victor';
-	register({})
+	// html
+	<img-victor src="/img.png"></img-victor>
 	```
 
-3. HTML
+## Documentation
 
-	```html
-	<img-victor src="/url.png"></img-victor>
-	```
+### Attributes
 
-## API
-1. < img-victor > attributes
+|Name|Type|Default|Description|
+|:--:|:--:|:-----:|:----------|
+|`src`|{String}|**Required** if `data-src` unset|The image URL|
+|`data-src`|{String}|**Required** if `src` unset|The lazy-loading `src`|
+|`title`|{String}|`''`|For screen readers|
+|`ratio`|{String}|`'1:1'`|`${width}:${height}` to prevent reflow before iamge loading|
+|`manual`|{Boolean}|`false`|When `manual` is true, img-victor will not draw automatically, it could be done by toggle the className `active`|
 
-	|Name|Type|Default|Description|
-	|:--:|:--:|:-----:|:----------|
-	|`src`|{String}|**Required**|The image URL|
-	|`title`|{String}|`''`|For screen readers|
-2. < img-victor > css custom property
+### CSS property
 
-	|Name|Type|Default|Description|
-	|:--:|:--:|:-----:|:----------|
-	|`--victor-stroke`|css \<color>|`dimgray`|svg path stroke color|
-	|`--victor-stroke-width`|css \<length>|`0.3%`|svg path stroke width|
-	|`--victor-stroke-linecap`|`{butt\|round\|square\|inherit}`|`round`|svg path stroke linecap|
-	|`--victor-stroke-linejoin`|`{arcs\|bevel\|miter\|miter-clip\|round}`|`round`|svg path stroke linejoin |
-	|`--victor-img-filter`|`css <filter>`|`opacity(0) brightness(20) blur(4px)`|filter of the origin image|
-	|`--victor-img-hover-filter`|`css <filter>`|`opacity(1) brightness(1) blur(0)`|filter of the origin image hovered|
-	|`--victor-transition`|`css <transition> exclude transition property`|`3200ms ease-in-out`|transition for animation|
-3. register options
+|Name|Type|Default|Description|
+|:--:|:--:|:-----:|:----------|
+|`--victor-stroke`|css \<color>|`dimgray`|svg path stroke color|
+|`--victor-stroke-width`|css \<length>|`0.3%`|svg path stroke width|
+|`--victor-stroke-linecap`|`{butt\|round\|square\|inherit}`|`round`|svg path stroke linecap|
+|`--victor-stroke-linejoin`|`{arcs\|bevel\|miter\|miter-clip\|round}`|`round`|svg path stroke linejoin |
+|`--victor-duration`|`css <transition-duration>`|`3200ms`|transition duration|
+|`--victor-timing-function`|`css <transition-timing-function>`|`ease-in-out`|transition timing function|
+|`--victor-filter`|`css <filter>`|`custom brush`|path filter|
 
-	|Name|Type|Default|Description|
-	|:--:|:--:|:-----:|:----------|
-	|`tagName`|{String}|`img-victor`|Change tag name of the web component|
-	|`worker`|{Worker}|`LSD worker`|The worker plugin.</br>1. Write your own worker.js like:</br>```onmessage({ data:ImageData }) => postMessage([, groupOfLines])```</br>2. Using a faster version LSD worker, example can be found in `index.html`</br>*Notice: you need to bundle and serve `fastWorker.js` and  `fastWorker.wasm`.*|
-	|`poolSize`|{Number}|`2`|Worker pool size|
+### Register Options
+
+|Name|Type|Default|Description|
+|:--:|:--:|:-----:|:----------|
+|`tagName`|{String}|`img-victor`|Change tag name of the web component|
+|`worker`|{Worker}|`LSD worker`|The worker plugin.</br>1. Write your own worker.js like:</br>```onmessage({ data:ImageData }) => postMessage([, groupOfLines])```</br>2. Using a faster version LSD worker, example can be found in `index.html`</br>*Notice: you need to bundle and serve `fastWorker.js` and  `fastWorker.wasm`.*|
+|`poolSize`|{Number}|`2`|Worker pool size|
 
 ## Development
 1. Install dependencies
@@ -73,9 +84,6 @@
 	`npm run dev`
 5. Put images under `./demo/img`, replace image URL in `index.html`
 6. Open `localhost:3000` in browser
-
-## Testing
-TBD
 
 ## References
 The LSD worker in this component is compiled from the C version of [LSD: a Line Segment Detector
