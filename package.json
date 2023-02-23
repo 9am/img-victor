@@ -1,6 +1,6 @@
 {
   "name": "@9am/img-victor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A web component coverting img to path",
   "keywords": [
     "web component",
@@ -14,7 +14,12 @@
   "type": "module",
   "module": "./dist/img-victor.es.js",
   "exports": {
-    ".": "./dist/img-victor.es.js"
+    ".": {
+        "import": "./dist/img-victor.es.js",
+        "default": "./dist/img-victor.es.js"
+    },
+    "./fastWorker.js": "./dist/fastWorker.js",
+    "./fastWorker.wasm": "./dist/fastWorker.wasm"
   },
   "files": [
     "dist/*.js",
