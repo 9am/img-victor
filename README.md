@@ -19,7 +19,7 @@
 </div>
 
 ## Demo
-<img src="https://user-images.githubusercontent.com/1435457/159872173-1cafc5ed-24e7-4ff7-8e2f-ee4232a40719.gif" alt="img-victor-demo" />
+<img src="https://user-images.githubusercontent.com/1435457/233823342-d76e050e-e52c-4270-9009-e67d6b91ff3a.gif" alt="img-victor-demo-manual" />
 
 ## Usage
 1. Installation
